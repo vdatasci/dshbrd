@@ -1,0 +1,67 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+  
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.panel-success > .panel-footer {
+    color: #468847;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.panel-heading > .table, .panel-heading > .table th {
+    margin:0px;
+    border: 0px;
+}
+
+
+</style>
+</head>
+
+
+<div class="container">
+	<br>
+	</br>
+	<p>
+	{{ pdtable|safe }}
+	</p>
+
+	<p>
+		<ul>
+
+			{% for name in tb0_Column_Names %}
+				<li>{{ name }}</li>
+			{% endfor %}
+
+		</ul>
+	</p>
+	<p>
+		<ul>
+
+			{% for row in tbl0_Rows %}
+				<li>{{ row }}</li>
+			{% endfor %}
+
+		</ul>
+	</p>
+
+
+
+</div>

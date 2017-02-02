@@ -1,0 +1,623 @@
+<html>
+<head>
+<title></title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<script src="js/all.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+    body,
+.modal-open .page-container,
+.modal-open .page-container .navbar-fixed-top,
+.modal-open .modal-container {
+	overflow-y: scroll;
+}
+
+@media (max-width: 979px) {
+	.modal-open .page-container .navbar-fixed-top{
+		overflow-y: visible;
+	}
+}
+  </style>
+
+  
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+jQuery(document).ready(function(e) {
+    jQuery('#mymodal').trigger('click');
+});
+});//]]> 
+</script>
+
+
+
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+
+
+<style>
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+</style>
+
+
+<style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+
+
+
+ <style>
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+button.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accordion.active:after {
+    content: "\2796";
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    opacity: 0;
+}
+
+div.panel.show {
+    opacity: 1;
+    max-height: 500px;  
+}
+</style>
+
+
+<style>
+body {
+  padding: 1em;
+  background: #FFF;
+}
+
+div {
+    margin-bottom: 15px;
+    padding: 4px 12px;
+}
+
+.blueheader {
+    background-color: #9ecefb;
+    border-left: 6px solid #2196F3;
+}
+
+.danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+}
+
+.success {
+    background-color: #ddffdd;
+    border-left: 6px solid #4CAF50;
+}
+
+.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+}
+
+
+.warning {
+    background-color: #ffffcc;
+    border-left: 6px solid #ffeb3b;
+}
+
+
+
+
+
+</style>
+
+
+</head>
+
+
+
+<TITLE>Data Science</TITLE>
+
+
+
+<body>
+
+<div class="container">
+  <h2>&nbspData Science Toolkit</h2>
+  <p>&nbsp&nbsp&nbspData Directory</p>                
+<div id="sticky-element">  
+  <ul class="breadcrumb">
+    <li class="active"><a href="/">Home</a></li>
+    <li class="active"><a href="/login/">Login</a></li>
+    <li><a href="#Setup">Setup</a></li>
+    <li><a href="#Bookmarks">Bookmarks</a></li>
+    <li><a href="#PythonSampleCodes">Python Sample Codes</a></li>
+	<li><a href="#CareerGrowth">Career Growth</a></li>	
+    <li><a href="#AboutMe">About Me</a></li>       	
+  </ul>
+</div>
+
+
+
+
+<div class="container">
+<p><h3>Animated search form:</h3></p>
+<form name="searchform">
+  <input type="text" name="search" placeholder="Search..">
+</form>
+</div>
+
+<p>
+<hr>
+</hr>
+</p>
+
+<p>
+<link rel="import" href="F:\Python\Flask\dashboard\template\external.html">
+</p>
+
+
+
+<p>
+<div class="container">
+<ul>
+
+    {% for ref in link %}
+	    <li><a href="{{ ref }}">{{ ref }}</a></li>
+    {% endfor %}
+
+</ul>
+</div>
+</p>
+
+
+<p>
+<div class="container">
+<ul>
+
+    {% for thing in other %}
+	    <li><a href="{{ ref }}">{{ thing }}</a></li>
+    {% endfor %}
+
+</ul>
+</div>
+</p>
+
+<p>
+<div class="container">
+{{ ll }}
+</div>
+</p>
+
+
+
+
+<p>
+<div class="container">
+  <h2>Dropdown Example</h2>
+  <p>The data-toggle="dropdown" attribute is used to open the dropdown menu.</p>
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Links
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		{% for ref in link %}
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ ref }}">{{ ref }}</a></li>
+	  <li role="presentation" class="divider"></li>
+		{% endfor %}
+    </ul>
+  </div>
+</div>
+</p>
+
+
+
+
+
+
+<p>
+<div class="container">
+<!-- Button trigger modal -->
+<button type="button" id="mymodal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+<iframe width="500" height="245" src="https://www.youtube.com/embed/HI-8CVixZ5o" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</p>
+
+
+<p>
+<div class="container">
+<h2>Popup</h2>
+
+<div class="popup" onclick="myFunction()">Click me to toggle the popup!
+  <span class="popuptext" id="myPopup">A Simple Popup!</span>
+</div>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle('show');
+}
+</script>
+</div>
+</p>
+
+
+
+
+
+
+<p>
+<div class="container">
+<a name="#PythonSampleCodes"></a>
+<h1>Python Sample Code</h1>
+<p>In this section, we look at examples of various Python scripts. These sample codes will be used to build your Data Science Toolkit. Feel free to copy the codes.</p>
+<button class="accordion"><i class="fa fa-cogs"></i>&nbsp 	Python Regular Expressions</button>
+		<div class="panel">
+		  <div class="container">
+		  <h3>Python Regular Expressions</h3>
+		  <h4>re.match</h4>
+		  <p><br>
+		<code>import re
+		<br>re.match(r"\$\d+\,\d+", "Data Science salary $100,000 per year", 0).group(0)
+		</code>
+
+			<div class="danger">
+  			<p><strong><code>Returns: </strong> S100,000</p></code>
+			</div>
+
+		</div>
+</div>
+
+<button class="accordion"><i class="fa fa-cogs"></i>&nbsp 	Python Flask</button>
+<div class="panel">
+<h3>Flask Setup</h3>	
+	<div class="blueheader">
+  		<p><strong><code><font color="1e74ff"> set FLASK_APP=F:\Python\cgi-bin\First Flask code.py</font></code></strong></p>
+		<br><code><font color="1e74ff">C:\Python27\ArcGIS10.4\python -m flask run</font></code></br>
+	</div>  
+	<p>
+</div>
+
+<button class="accordion"><i class="fa fa-cogs"></i>&nbsp 	Linear Algebra</button>
+<div id="foo" class="panel" style="overflow-y: scroll;">
+	<p>
+	<div class="blueheader">
+  		<p><strong><code><font color="1e74ff"> Linear Regression Example</font></code></strong></p>
+	</div><div class="info">
+		<br><code><font color="1e74ff">
+		<br>from numpy import arange,array,ones,linalg</br>
+		<br>from pylab import plot,show</br>
+		<br></br>
+		<br>xv = input("How many x-values?")</br>
+		<br>xi = arange(0,xv)</br>
+		<br>A = array([ xi, ones(xv)])</br>
+		<br># linearly generated sequence</br>
+		<br>y = input("input y-values.")</br>
+		<br>#y = [19, 20, 20.5, 21.5, 22, 23, 23, 25.5, 24]</br>
+		<br>w = linalg.lstsq(A.T,y)[0] # obtaining the parameters</br>
+		<br></br>
+		<br># plotting the line</br>
+		<br>line = w[0]*xi+w[1] # regression line</br>
+		<br>plot(xi,line,'r-',xi,y,'o')</br>
+		<br>show()</br>
+		
+		</font></code></br>
+	</div>
+	
+  <p>
+				  <div class="container">
+				  <p>Position filters under the headers, make filters case sensitive, remember filters' values across page re-loads</p>
+				<table id="table11" cellpadding="0" cellspacing="0">
+					<tr>
+						<th>World Regions</th>
+						<th>Population ( 2007 Est.)</th>
+						<th>Population % of World</th>
+						<th>% Population ( Penetration )</th>
+						<th>Usage % of World</th>
+					</tr>
+					<tr>
+						<td>Africa</td>
+						<td>933 448 292</td>
+						<td>14.2</td>
+						<td>3.5</td>
+						<td>3.0 %</td>
+					</tr>
+					<tr>
+						<td>Asia</td>
+						<td>3 712 527 624</td>
+						<td>56.5</td>
+						<td>10.5</td>
+						<td>35.6 %</td>
+					</tr>
+					<tr>
+						<td>Europe</td>
+						<td>809 624 686</td>
+						<td>12.3</td>
+						<td>38.6</td>
+						<td>28.6 %</td>
+					</tr>
+					<tr>
+						<td>Middle East</td>
+						<td>193 452 727</td>
+						<td>2.9</td>
+						<td>10.0</td>
+						<td>1.8 %</td>
+					</tr>
+					<tr>
+						<td>North America</td>
+						<td>334 538 018</td>
+						<td>5.1</td>
+						<td>69.4</td>
+						<td>21.2 %</td>
+					</tr>
+					<tr>
+						<td>Latin America / Caribbean</td>
+						<td>556 606 627</td>
+						<td>8.5</td>
+						<td>16.0</td>
+						<td>8.1 %</td>
+					</tr>
+					<tr>
+						<td>Oceania / Australia</td>
+						<td>34 468 443</td>
+						<td>0.5</td>
+						<td>53.5</td>
+						<td>1.7 %</td>
+					</tr>
+				</table>
+				<p>
+				<p>
+				...Need to put data above.
+				</div>
+  
+  
+  
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+  }
+}
+</script>
+</div>
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+
+var table11_Props = {
+    filters_row_index: 1,
+    match_case: true,
+    remember_grid_values: true
+};
+var tf11 = setFilterGrid("table11", table11_Props);
+//]]> 
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="btn-groups-single">Basic button group</h3>
+<div class="btn-group">
+  <button type="button" class="btn btn-default">Left</button>
+  <button type="button" class="btn btn-default">Middle</button>
+  <button type="button" class="btn btn-default">Right</button>
+</div>
+
+
+<p>
+<span class="label">Default</span>
+<span class="label label-success">Success</span>
+<span class="label label-warning">Warning</span>
+<span class="label label-important">Important</span>
+<span class="label label-info">Info</span>
+<span class="label label-inverse">Inverse</span>
+</p>
+
+
+
+
+<p>
+<ul class="list-group">
+  <li class="list-group-item">New <span class="badge">12</span></li>
+  <li class="list-group-item">Deleted <span class="badge">5</span></li> 
+  <li class="list-group-item">Warnings <span class="badge">3</span></li> 
+</ul>
+</p>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+</html>

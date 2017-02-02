@@ -1,0 +1,39 @@
+<html>
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+<style>
+textarea
+{
+  width:75%;
+  height:104px;
+}
+</style>
+   <body>
+      
+      <form action = "{{ url_for('addrec') }}" method = "POST">
+         <h3>Student Information</h3>
+         Name:<br>
+         <input type = "text" name = "nm" /></br>
+		 <div style="height:4px;font-size:1px;">&nbsp;</div>
+		 
+         Address:<br>
+         <input type = "text" name = "add" /><br>
+		 <div style="height:4px;font-size:1px;">&nbsp;</div>
+         
+         City:<br>
+         <input type = "text" name = "city" /><br>
+		 <div style="height:4px;font-size:1px;">&nbsp;</div>
+         
+         Zipcode<br>
+         <input type = "text" name = "pin" /><br>
+		 <div style="height:4px;font-size:1px;">&nbsp;</div>
+		 
+		 Comments:<br>
+         <textarea name = "add" ></textarea><br><br>
+		 <div style="height:4px;font-size:1px;">&nbsp;</div>
+		 
+		 
+         <input type = "submit" value = "submit" /><br>
+      </form>
+      
+   </body>
+</html>
