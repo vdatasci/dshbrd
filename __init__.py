@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
+from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 import os
 import sqlite3 as sql
 import pandas as pd
@@ -49,9 +50,15 @@ def insert_into_database(nm, addr, city, pin):
         cur.execute("INSERT INTO students (name, addr, city, pin) VALUES (?,?,?,?)", (nm, addr, city, pin))
         con.commit()
 
-
+class ReusableForm(Form):
+    name = TextField('Name:', validators=[validators.required()])
+    email = TextField('Email:', validators=[validators.required(), validators.Length(min=6, max=35)])
+    password = TextField('Password:', validators=[validators.required(), validators.Length(min=3, max=35)])
+ 
 
 app = Flask(__name__, template_folder='template', static_folder = "static")
+app.config.from_object(__name__)
+
 
 @app.route('/')
 def home():
@@ -60,17 +67,42 @@ def home():
     else:
         return render_template('homepage.html')
 
+@app.route("/sign_up/", methods=['GET', 'POST'])
+def sign_up():
+    form = ReusableForm(request.form)
+ 
+    print form.errors
+    if request.method == 'POST':
+        name=request.form['name']
+        password=request.form['password']
+        email=request.form['email']
+        print name, " ", email, " ", password
+ 
+        if form.validate():
+            # Save the comment here.
+            flash('Thanks for registration ' + name)
+        else:
+            flash('Error: All the form fields are required. ')
+ 
+    return render_template('sign_up.html', form=form)
+
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     if request.form['password'] == 'password' and request.form['username'] == 'admin':
         session['logged_in'] = True
     else:
-        return render_template('homepage.html')
-    return index()
+        return home()
+    return homepage()
 
 @app.route('/homepage/')
 def homepage():
 	return render_template('homepage.html')
+
+
+
+@app.route('/data/')
+def data_page():
+	return render_template('DATA_page.html')
 
 @app.route('/index/')
 def index():
@@ -120,6 +152,10 @@ def signUpUser():
 @app.route('/enternew')
 def new_student():
     return render_template('student.html')
+
+@app.route('/simple_search/')
+def simple_search():
+	return render_template('simple_search.html')
 
 @app.route('/addrec',methods = ['POST', 'GET'])
 def addrec():
